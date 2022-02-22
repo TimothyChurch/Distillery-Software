@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import routes from 'virtual:generated-pages'
 import App from './App.vue'
 
@@ -13,4 +15,5 @@ const router = createRouter({
   routes,
 })
 app.use(router)
+app.use(ElementPlus)
 app.mount('#app')

@@ -5,7 +5,10 @@ import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import { presetAttributify, presetIcons, presetUno } from 'unocss'
 import Unocss from 'unocss/vite'
 
@@ -33,7 +36,15 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-components
     Components({
+      resolvers: [
+        IconsResolver(),
+        ElementPlusResolver(),
+      ],
       dts: true,
+    }),
+
+    Icons({
+      autoInstall: true,
     }),
 
     // https://github.com/antfu/unocss
